@@ -1,0 +1,28 @@
+{
+  "intro": "Most sensing systems measure the world with a configuration chosen in advance: the same bands, the same geometry, the same sequence, regardless of what the first observations reveal. AURORA asks whether a sensing architecture can instead determine what information is missing before selecting its next observation.",
+  "problems": [
+    { "id": "incomplete", "title": "Incomplete observations",
+      "text": "A finite set of measurements can leave parts of the physical state unconstrained. Without an explicit model of what is unresolved, a system may report a retrieval that the data do not actually support." },
+    { "id": "ambiguity", "title": "Surface–atmosphere ambiguity",
+      "text": "A bright surface under clean air and a darker surface under hazy air can produce similar top-of-atmosphere radiance. Separating the two typically requires additional, complementary information." },
+    { "id": "redundancy", "title": "Measurement redundancy",
+      "text": "Neighbouring spectral bands and repeated measurements are often highly correlated. Additional observations of this kind consume budget while adding little new information." },
+    { "id": "variability", "title": "Environmental variability",
+      "text": "Atmospheric and surface conditions change over time and space. A configuration that is informative under one condition may be uninformative under another." },
+    { "id": "drift", "title": "Sensor drift",
+      "text": "Gradual calibration changes bias measurements in ways an estimator may not model. Drift can make reported uncertainty look smaller than the actual error." },
+    { "id": "budget", "title": "Limited measurement budgets",
+      "text": "Time, energy, data volume, and cost limit how many observations can be made. The question becomes which observations to make, not only how to process them." },
+    { "id": "retrieval", "title": "Uncertainty in physical state retrieval",
+      "text": "Retrieving physical quantities from indirect measurements is an inverse problem. Solutions may be non-unique or unstable, so uncertainty must be quantified rather than assumed." },
+    { "id": "fixed", "title": "Limits of predetermined configurations",
+      "text": "Fixed configurations are simple, robust, and well understood, and they can be strong baselines. Their limitation is that they cannot respond to what the current observations have, or have not, resolved." }
+  ],
+  "approach": [
+    "Represent the current state of knowledge as an estimate with explicit uncertainty.",
+    "Identify which physical parameters or hypotheses remain unresolved.",
+    "Select the next observation expected to reduce that deficit most per unit of cost.",
+    "Stop when the retrieval is sufficiently constrained or the budget is exhausted.",
+    "Test every claimed benefit against fixed, optimized-fixed, and random baselines under explicitly defined conditions."
+  ]
+}

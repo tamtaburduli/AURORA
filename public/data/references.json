@@ -1,0 +1,15 @@
+{
+  "$schema_note": "Background literature on established methods. These are cited for context only; none of these works is affiliated with AURORA. Verify every entry before citing it in the manuscript.",
+  "references": [
+    { "id": "lindley1956", "authors": "D. V. Lindley", "year": 1956, "title": "On a measure of the information provided by an experiment", "venue": "Annals of Mathematical Statistics", "topic": "bayesian-design", "verified": false },
+    { "id": "chaloner1995", "authors": "K. Chaloner and I. Verdinelli", "year": 1995, "title": "Bayesian experimental design: a review", "venue": "Statistical Science", "topic": "bayesian-design", "verified": false },
+    { "id": "bajcsy1988", "authors": "R. Bajcsy", "year": 1988, "title": "Active perception", "venue": "Proceedings of the IEEE", "topic": "active-perception", "verified": false },
+    { "id": "rodgers2000", "authors": "C. D. Rodgers", "year": 2000, "title": "Inverse Methods for Atmospheric Sounding: Theory and Practice", "venue": "World Scientific", "topic": "inverse", "verified": false },
+    { "id": "tarantola2005", "authors": "A. Tarantola", "year": 2005, "title": "Inverse Problem Theory and Methods for Model Parameter Estimation", "venue": "SIAM", "topic": "inverse", "verified": false },
+    { "id": "stamnes1988", "authors": "K. Stamnes, S.-C. Tsay, W. Wiscombe, and K. Jayaweera", "year": 1988, "title": "Numerically stable algorithm for discrete-ordinate-method radiative transfer in multiple scattering and emitting layered media", "venue": "Applied Optics", "topic": "radiative-transfer", "verified": false },
+    { "id": "mayer2005", "authors": "B. Mayer and A. Kylling", "year": 2005, "title": "Technical note: The libRadtran software package for radiative transfer calculations — description and examples of use", "venue": "Atmospheric Chemistry and Physics", "topic": "radiative-transfer", "verified": false },
+    { "id": "emde2016", "authors": "C. Emde et al.", "year": 2016, "title": "The libRadtran software package for radiative transfer calculations (version 2.0.1)", "venue": "Geoscientific Model Development", "topic": "radiative-transfer", "verified": false },
+    { "id": "krause2008", "authors": "A. Krause, A. Singh, and C. Guestrin", "year": 2008, "title": "Near-optimal sensor placements in Gaussian processes: theory, efficient algorithms and empirical studies", "venue": "Journal of Machine Learning Research", "topic": "information-selection", "verified": false },
+    { "id": "hall1997", "authors": "D. L. Hall and J. Llinas", "year": 1997, "title": "An introduction to multisensor data fusion", "venue": "Proceedings of the IEEE", "topic": "fusion", "verified": false }
+  ]
+}

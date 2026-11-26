@@ -1,0 +1,30 @@
+{
+  "$schema_note": "Set a section's 'content' to a string (paragraphs separated by blank lines) when ready. Set a file 'path' (relative to public/, e.g. 'documents/aurora-manuscript.pdf') only after placing the file there — buttons are hidden while path is null. Do not add a DOI or venue until one exists.",
+  "title": "AURORA: Adaptive Uncertainty-Aware Radiative Observation and Ranging Architecture",
+  "subtitle": "Toward Information-Driven Adaptive Multimodal Sensing",
+  "authors": ["Tamta Burduli"],
+  "status": "Manuscript in preparation",
+  "doi": null,
+  "venue": null,
+  "peerReviewStatus": null,
+  "sections": [
+    { "id": "abstract", "title": "Abstract", "content": null },
+    { "id": "hypotheses", "title": "Research hypotheses", "content": null,
+      "draftBullets": [
+        "H1: Under a fixed measurement budget, the value of a given observation depends on the current state estimate and its uncertainty.",
+        "H2: An uncertainty-aware strategy can identify information deficits before selecting its next observation.",
+        "H3: Complementary physical observables can reduce surface-atmosphere ambiguity that a single modality cannot resolve.",
+        "H4: Any advantage of adaptive selection is condition-dependent and must be demonstrated against strong fixed and random baselines."
+      ] },
+    { "id": "methodology", "title": "Methodology", "content": null },
+    { "id": "results", "title": "Preliminary results", "content": null },
+    { "id": "discussion", "title": "Discussion", "content": null },
+    { "id": "limitations", "title": "Limitations", "content": null },
+    { "id": "references", "title": "References", "content": null }
+  ],
+  "files": [
+    { "id": "pdf", "label": "Manuscript PDF", "path": null },
+    { "id": "supplement", "label": "Supplementary materials", "path": null },
+    { "id": "repository", "label": "Reproducibility repository", "url": null }
+  ]
+}

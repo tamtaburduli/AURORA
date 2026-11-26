@@ -1,0 +1,20 @@
+{
+  "$schema_note": "Parameter space of the libRadtran lookup table. 'lutFile' points to a real libRadtran output file in public/data/ once one is published; leave null until then. The site never fabricates libRadtran output.",
+  "environment": [
+    { "name": "libRadtran", "version": "2.0.6", "role": "Radiative transfer simulation framework" },
+    { "name": "DISORT", "version": "bundled with libRadtran", "role": "Discrete ordinates radiative transfer solver" },
+    { "name": "Python", "version": null, "role": "Experiment orchestration and analysis" },
+    { "name": "MATLAB", "version": null, "role": "Analysis and visualization" }
+  ],
+  "solver": { "name": "DISORT", "streams": 16 },
+  "parameters": [
+    { "id": "aod", "label": "Aerosol optical depth at 550 nm", "symbol": "\\tau_{550}", "unit": "", "values": [0.05, 0.15, 0.35, 0.65] },
+    { "id": "albedo", "label": "Surface albedo", "symbol": "\\rho_s", "unit": "", "values": [0.05, 0.20, 0.40] },
+    { "id": "sza", "label": "Solar zenith angle", "symbol": "\\theta_0", "unit": "°", "values": [25, 55] },
+    { "id": "umu", "label": "Viewing zenith cosine", "symbol": "\\mu", "unit": "", "values": [0.65, 0.95] },
+    { "id": "wavelength", "label": "Wavelength", "symbol": "\\lambda", "unit": "nm", "values": [450, 550, 650, 750, 850, 950] }
+  ],
+  "expectedConfigurations": 288,
+  "lutFile": null,
+  "provenance": { "source": "Researcher's libRadtran experiment design", "validationStatus": "parameter design confirmed by researcher; outputs not yet published on this site" }
+}

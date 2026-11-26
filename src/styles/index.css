@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void: #03050b;
+  --midnight: #070d1f;
+  --line: rgba(120, 160, 255, 0.12);
+  --g1: #34e3a4;
+  --g2: #3fd6f0;
+  --g3: #9d7bff;
+  --g4: #4f7dff;
+  color-scheme: dark;
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(79, 125, 255, 0.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 20%, rgba(52, 227, 164, 0.06), transparent 60%),
+    var(--void);
+  min-height: 100vh;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+.aurora-text {
+  background: linear-gradient(100deg, var(--g1), var(--g2) 40%, var(--g4) 65%, var(--g3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 20px 60px -30px rgba(0, 0, 0, 0.8);
+  }
+  .panel-pad { @apply p-5 md:p-7; }
+  .eyebrow { @apply font-mono text-[11px] uppercase tracking-[0.22em] text-aurora-cyan/80; }
+  .h-display { @apply font-display font-medium tracking-tight text-slate-50; }
+  .section { @apply mx-auto max-w-7xl px-5 md:px-8 py-16 md:py-24; }
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition
+      focus:outline-none focus-visible:ring-2 focus-visible:ring-aurora-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-void;
+  }
+  .btn-primary { @apply btn bg-gradient-to-r from-aurora-green via-aurora-cyan to-aurora-blue text-void hover:brightness-110; }
+  .btn-ghost { @apply btn border border-white/15 bg-white/[0.03] text-slate-100 hover:border-aurora-cyan/60 hover:bg-white/[0.06]; }
+  .btn-sm { @apply px-3 py-1.5 text-xs; }
+  .chip { @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-mono uppercase tracking-wider; }
+  .prose-sci { @apply text-slate-300 leading-relaxed max-w-prose2; }
+  .prose-sci p + p { @apply mt-4; }
+  .label { @apply text-xs font-medium text-slate-400; }
+  .focus-ring { @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-aurora-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-void; }
+  .tbl { @apply w-full text-sm; }
+  .tbl th { @apply text-left font-medium text-slate-400 border-b border-white/10 py-2 pr-4; }
+  .tbl td { @apply border-b border-white/5 py-2 pr-4 text-slate-200; }
+  .tbl td.num, .tbl th.num { @apply text-right font-mono tabular-nums; }
+  figcaption { @apply mt-3 text-xs leading-relaxed text-slate-400; }
+}
+
+input[type='range'] {
+  -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 9999px;
+  background: linear-gradient(90deg, rgba(63, 214, 240, 0.6), rgba(157, 123, 255, 0.6));
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 16px; height: 16px; border-radius: 9999px; background: #e8eefc;
+  border: 2px solid #3fd6f0; cursor: pointer;
+}
+input[type='range']::-moz-range-thumb { width: 14px; height: 14px; border-radius: 9999px; background: #e8eefc; border: 2px solid #3fd6f0; cursor: pointer; }
+input[type='range']:focus-visible { outline: 2px solid #3fd6f0; outline-offset: 4px; }
+
+.flow-dash { stroke-dasharray: 6 8; animation: flow 1.6s linear infinite; }
+@keyframes flow { to { stroke-dashoffset: -28; } }
+
+.katex { font-size: 1.08em; color: #e8eefc; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
+
+.skip-link { position: absolute; left: -9999px; }
+.skip-link:focus { left: 1rem; top: 1rem; z-index: 100; }
+
+/* Let grid children shrink below their content width so inner scroll containers work on small screens. */
+.grid > * { min-width: 0; }

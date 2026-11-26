@@ -1,0 +1,35 @@
+{
+  "$schema_note": "Site-wide identity and researcher profile. Any link whose url is null is shown as 'not yet added' rather than as a button. Do NOT add a personal email or phone number; use a public professional address or a contact form URL.",
+  "project": {
+    "name": "AURORA",
+    "fullName": "Adaptive Uncertainty-aware Radiative Observation and Ranging Architecture",
+    "tagline": "Beyond fixed observations. Toward information-aware sensing.",
+    "status": "Active Research and Experimental Development",
+    "question": "Can a sensing system recognize when its observations are insufficient, identify missing information, and adapt its measurement configuration to recover that information?",
+    "mission": "AURORA investigates whether existing sensing technologies can be improved through uncertainty-aware decision-making, adaptive spectral selection, complementary physical observables, and information-efficient measurement strategies.",
+    "disclaimer": "AURORA is an ongoing scientific research project, not a commercially available or fully validated physical sensor."
+  },
+  "researcher": {
+    "name": "Tamta Burduli",
+    "role": "Researcher and project creator, AURORA",
+    "summary": "Tamta Burduli is a researcher working across physics and remote sensing. Her work focuses on how much physical information about surfaces and atmospheres can be recovered from observations, and on when a set of observations is insufficient to answer a physical question.",
+    "interests": [
+      "Physics",
+      "Remote sensing",
+      "Atmospheric radiative transfer",
+      "Computational modeling",
+      "Spectral analysis",
+      "Optical sensing",
+      "Scientific instrumentation research",
+      "Intelligent sensing architectures"
+    ],
+    "statement": "AURORA is an independent research initiative. It is not sponsored or endorsed by any university, laboratory, or government agency.",
+    "links": [
+      { "id": "cv", "label": "Academic CV", "url": null, "kind": "file" },
+      { "id": "github", "label": "GitHub", "url": null, "kind": "external" },
+      { "id": "orcid", "label": "ORCID", "url": null, "kind": "external" },
+      { "id": "scholar", "label": "Google Scholar", "url": null, "kind": "external" },
+      { "id": "contact", "label": "Professional contact", "url": null, "kind": "contact" }
+    ]
+  }
+}

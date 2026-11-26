@@ -1,0 +1,157 @@
+{
+  "$schema_note": "Each experiment carries provenance and validationStatus fields. Edit values here; the dashboard re-renders automatically. Numbers are copied verbatim from the researcher's preliminary summaries and have NOT been re-computed by the website.",
+  "globalCaveats": [
+    "All results on this page are preliminary computational results requiring further verification.",
+    "Exact metric definitions, experimental protocols, sample sizes, confidence intervals, and budget comparability must be confirmed before drawing scientific conclusions.",
+    "No statistical significance is claimed or computed here. No comparison with commercial sensors is implied."
+  ],
+  "metricDefinitions": [
+    {
+      "id": "ucd",
+      "name": "Unknown-condition detection metric",
+      "definition": "Definition to be confirmed by the researcher before publication.",
+      "higherIsBetter": null,
+      "definitionConfirmed": false
+    },
+    {
+      "id": "fpr",
+      "name": "False positive rate",
+      "definition": "Fraction of nominal (known-condition) cases incorrectly flagged as unknown. Exact protocol to be confirmed.",
+      "higherIsBetter": false,
+      "definitionConfirmed": false
+    }
+  ],
+  "experiments": [
+    {
+      "id": "015",
+      "title": "Experiment 015: Multimodal Measurement Selection",
+      "summary": "Five candidate sensing modalities were investigated under a measurement budget of three.",
+      "setup": {
+        "candidateModalities": 5,
+        "measurementBudget": 3,
+        "seeds": "Multiple experimental seeds (number to be confirmed)",
+        "aggregation": "Mean across experimental seeds"
+      },
+      "tables": [
+        {
+          "id": "015-main",
+          "title": "Preliminary mean results across experimental seeds",
+          "columns": [
+            { "key": "strategy", "label": "Strategy" },
+            { "key": "ucd", "label": "Unknown-condition detection metric", "numeric": true },
+            { "key": "fpr", "label": "False positive rate", "numeric": true }
+          ],
+          "rows": [
+            { "strategy": "Original adaptive", "ucd": 0.348, "fpr": 0.049 },
+            { "strategy": "Optimized fixed", "ucd": 0.322, "fpr": 0.048 },
+            { "strategy": "Random", "ucd": 0.433, "fpr": 0.048 }
+          ],
+          "chart": { "type": "bar", "x": "strategy", "series": ["ucd", "fpr"] }
+        },
+        {
+          "id": "015-heldout",
+          "title": "Held-out condition results",
+          "unit": "%",
+          "columns": [
+            { "key": "condition", "label": "Condition" },
+            { "key": "adaptive", "label": "Adaptive", "numeric": true },
+            { "key": "fixed", "label": "Fixed", "numeric": true },
+            { "key": "random", "label": "Random", "numeric": true }
+          ],
+          "rows": [
+            { "condition": "Drift", "adaptive": 34.15, "fixed": 10.98, "random": 13.41 },
+            { "condition": "Precipitation", "adaptive": 28.82, "fixed": 57.29, "random": 73.61 }
+          ],
+          "chart": { "type": "bar", "x": "condition", "series": ["adaptive", "fixed", "random"] }
+        }
+      ],
+      "interpretation": "These results demonstrate condition-dependent performance rather than universal adaptive superiority. In the aggregate table, the random strategy obtains the highest unknown-condition detection metric; under held-out drift the adaptive strategy obtains the highest value, while under held-out precipitation it obtains the lowest.",
+      "methodNotes": [
+        "Measurement budget of three out of five candidate modalities.",
+        "Held-out conditions were not seen during strategy design (protocol to be confirmed).",
+        "The quantity reported in the held-out table is assumed to be the same detection metric expressed as a percentage; this must be confirmed."
+      ],
+      "limitations": [
+        "Number of seeds and per-seed variance not yet reported; no confidence intervals.",
+        "Synthetic simulation environment; no physical instrument data.",
+        "Metric definition and direction (higher-is-better) pending confirmation."
+      ],
+      "provenance": {
+        "source": "Researcher's preliminary experiment summary (Experiment 015)",
+        "dataType": "computational / synthetic simulation",
+        "codeAvailable": false,
+        "rawDataPublished": false
+      },
+      "validationStatus": "preliminary"
+    },
+    {
+      "id": "015g",
+      "title": "Experiment 015g: Reference-Based Strategies",
+      "summary": "Comparison of strategies that make use of a reference observation.",
+      "setup": {
+        "measurementBudget": "To be confirmed — the all-five reference strategy uses every modality, so budgets are not directly comparable."
+      },
+      "tables": [
+        {
+          "id": "015g-main",
+          "title": "Unknown-condition detection metric by strategy",
+          "columns": [
+            { "key": "strategy", "label": "Strategy" },
+            { "key": "ucd", "label": "Unknown-condition detection metric", "numeric": true }
+          ],
+          "rows": [
+            { "strategy": "Fixed reference", "ucd": 0.715 },
+            { "strategy": "Adaptive reference", "ucd": 0.539 },
+            { "strategy": "All-five reference", "ucd": 0.934 }
+          ],
+          "chart": { "type": "bar", "x": "strategy", "series": ["ucd"] }
+        }
+      ],
+      "interpretation": "In this configuration the fixed reference strategy outperforms the adaptive reference strategy. The all-five reference strategy obtains the highest value but, by using all five modalities, likely operates under a larger measurement budget; it should be treated as an upper reference rather than a like-for-like competitor.",
+      "methodNotes": ["Reference strategies are compared on the unknown-condition detection metric only; false positive rates to be reported."],
+      "limitations": ["Budget comparability between strategies must be confirmed.", "No confidence intervals."],
+      "provenance": {
+        "source": "Researcher's preliminary experiment summary (Experiment 015g)",
+        "dataType": "computational / synthetic simulation",
+        "codeAvailable": false,
+        "rawDataPublished": false
+      },
+      "validationStatus": "preliminary"
+    },
+    {
+      "id": "015h",
+      "title": "Experiment 015h: Hybrid Reference-First Strategy",
+      "summary": "A hybrid strategy that acquires a reference observation first and then selects remaining measurements.",
+      "setup": { "measurementBudget": "To be confirmed" },
+      "tables": [
+        {
+          "id": "015h-main",
+          "title": "Hybrid reference-first strategy — reported values",
+          "columns": [
+            { "key": "quantity", "label": "Quantity" },
+            { "key": "value", "label": "Value", "numeric": true }
+          ],
+          "rows": [
+            { "quantity": "Unknown-condition detection metric", "value": 0.849 },
+            { "quantity": "Precipitation", "value": 0.864 },
+            { "quantity": "Drift", "value": 0.833 },
+            { "quantity": "False positive rate", "value": 0.049 }
+          ],
+          "chart": { "type": "bar", "x": "quantity", "series": ["value"] }
+        }
+      ],
+      "interpretation": "The hybrid reference-first strategy reports higher detection values than the strategies in Experiment 015 at a similar false positive rate. Whether this reflects the strategy itself or differences in budget, reference access, or protocol has not yet been established.",
+      "methodNotes": [
+        "Precipitation and drift values are reported here on a 0–1 scale; Experiment 015 held-out values are reported in percent. Confirm that these are the same metric before comparing them directly."
+      ],
+      "limitations": ["Budget comparability with Experiment 015 must be confirmed.", "No confidence intervals.", "Ablations (reference-only, reference + fixed) not yet reported."],
+      "provenance": {
+        "source": "Researcher's preliminary experiment summary (Experiment 015h)",
+        "dataType": "computational / synthetic simulation",
+        "codeAvailable": false,
+        "rawDataPublished": false
+      },
+      "validationStatus": "preliminary"
+    }
+  ]
+}

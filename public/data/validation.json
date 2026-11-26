@@ -1,0 +1,58 @@
+{
+  "$schema_note": "Content for the Scientific Novelty and Validation page. 'refs' point to ids in references.json. Checklist 'done' flags must reflect reality; update them as work is completed.",
+  "objective": "The central objective is to determine whether AURORA provides measurable advantages over established sensing strategies under explicitly defined conditions.",
+  "noveltyStatement": "AURORA does not claim to be the first system of its kind, and its scientific novelty has not been established. Adaptive sensing, active perception, sensor fusion, and Bayesian experimental design are mature fields. Any contribution must be demonstrated relative to them.",
+  "existing": [
+    { "id": "adaptive", "title": "Existing adaptive sensing methods", "refs": [],
+      "text": "Many instruments already adapt: exposure control, adaptive optics, targeted observation scheduling, and compressive or adaptive sampling. These methods adjust acquisition based on the signal, often with well-understood guarantees." },
+    { "id": "active", "title": "Active perception", "refs": ["bajcsy1988"],
+      "text": "Active perception treats sensing as a control problem: the observer changes its viewpoint or parameters to obtain more informative data. AURORA's loop belongs to this tradition." },
+    { "id": "fusion", "title": "Sensor fusion", "refs": ["hall1997"],
+      "text": "Multisensor data fusion combines observations from different sensors to improve estimates. AURORA's multimodal component overlaps with fusion; the distinction under study is choosing which modality to acquire, not only how to combine data that already exist." },
+    { "id": "bed", "title": "Bayesian experimental design", "refs": ["lindley1956", "chaloner1995"],
+      "text": "Bayesian experimental design selects experiments that maximize an expected utility, often expected information gain. AURORA's selection criterion is an application of this framework." },
+    { "id": "info", "title": "Information-theoretic measurement selection", "refs": ["krause2008", "rodgers2000"],
+      "text": "Mutual-information-based sensor placement and channel selection, including information-content analysis in atmospheric sounding, are established. They provide both baselines and theoretical tools such as submodularity." }
+  ],
+  "contribution": [
+    "Integrating uncertainty assessment, explicit identification of the information deficit, and cost-aware selection in one loop for surface–atmosphere retrieval.",
+    "Testing whether the most informative spectral subset changes with state, objective, and conditions, rather than assuming a single optimal configuration.",
+    "Evaluating detection of unknown or held-out conditions (for example drift and precipitation) as part of the selection problem.",
+    "Reporting adaptive strategies against strong fixed, optimized-fixed, and random baselines, including negative results."
+  ],
+  "contributionCaveat": "These are proposed contributions under investigation. Whether any of them is new relative to the literature requires a systematic review.",
+  "baselines": [
+    { "name": "Fixed configuration", "why": "The standard practice; simple and robust." },
+    { "name": "Optimized fixed configuration", "why": "The strongest non-adaptive competitor; adaptive methods must beat this, not a naive fixed choice." },
+    { "name": "Random selection", "why": "Controls for the benefit of diversity alone. Random selection outperformed adaptive selection on the aggregate metric in Experiment 015." },
+    { "name": "All-modality (unbudgeted) reference", "why": "An upper reference showing what is achievable without a budget constraint." },
+    { "name": "Classical information-gain greedy selection", "why": "Separates AURORA-specific choices from standard Bayesian design." }
+  ],
+  "negativeResults": [
+    "Experiment 015: random selection obtained a higher aggregate unknown-condition detection metric (0.433) than the original adaptive strategy (0.348).",
+    "Experiment 015, held-out precipitation: adaptive selection (28.82%) was lower than optimized fixed (57.29%) and random (73.61%).",
+    "Experiment 015g: the adaptive reference strategy (0.539) was lower than the fixed reference strategy (0.715)."
+  ],
+  "failureCases": [
+    "Conditions not represented when the strategy was designed (for example precipitation) may cause the adaptive criterion to choose uninformative observations.",
+    "Unmodelled drift can make posterior uncertainty under-report actual error, causing premature stopping.",
+    "Greedy, one-step-ahead selection can miss observations that are only valuable in combination."
+  ],
+  "ablations": [
+    { "name": "Reference observation only", "done": false },
+    { "name": "Reference + fixed remainder vs. reference + adaptive remainder", "done": false },
+    { "name": "Adaptive selection without the unknown-condition component", "done": false },
+    { "name": "Budget sweep (all strategies at matched budgets)", "done": false },
+    { "name": "Number of candidate modalities", "done": false }
+  ],
+  "reproducibility": [
+    { "item": "Metric definitions written down and confirmed", "done": false },
+    { "item": "Number of seeds and per-seed results reported", "done": false },
+    { "item": "Confidence intervals or other uncertainty estimates", "done": false },
+    { "item": "Budget comparability verified across strategies", "done": false },
+    { "item": "Experiment code published", "done": false },
+    { "item": "libRadtran input files and LUT published", "done": false },
+    { "item": "Environment versions recorded (libRadtran 2.0.6, DISORT, Python, MATLAB)", "done": true }
+  ],
+  "independentValidation": "Planned: evaluation on independent data not used in strategy design, ideally real observations with ground truth, and review of the methodology by researchers outside the project. No independent validation has been carried out yet."
+}

@@ -1,0 +1,61 @@
+{
+  "$schema_note": "experimentalStatus must be one of: simulated, exploratory, conceptual, physical-prototype. 'integrated' must stay false until a physical integrated instrument exists.",
+  "integrationNotice": "These five modalities are research directions. They have been studied in simulation and, for acoustics, in exploratory recordings. They have not been physically integrated into a working instrument.",
+  "modalities": [
+    {
+      "id": "optical", "name": "Optical sensing", "icon": "Telescope", "color": "#3fd6f0",
+      "observables": ["Spectral radiance", "Reflectance", "Atmospheric absorption", "Spectral discrimination"],
+      "principles": "Radiance reaching a sensor combines light scattered by the atmosphere (path radiance) with light reflected by the surface and attenuated on the way up. Different wavelengths respond differently to aerosols, gases, and surface materials, so a spectrum carries information about both the surface and the atmosphere.",
+      "contribution": "Primary observable for surface and aerosol retrieval; the testbed for adaptive five-band spectral selection.",
+      "experimentalStatus": "simulated",
+      "statusDetail": "Studied through radiative transfer modeling (libRadtran/DISORT) and synthetic multimodal experiments.",
+      "limitations": ["Surface and atmospheric contributions can compensate one another (surface-atmosphere ambiguity).", "Gas absorption bands remove usable channels.", "Calibration drift biases retrievals."],
+      "integrated": false,
+      "demo": "spectrum"
+    },
+    {
+      "id": "polarimetric", "name": "Polarimetric sensing", "icon": "Orbit", "color": "#9d7bff",
+      "observables": ["Polarization state", "Surface-atmosphere separation", "Complementary scattering information"],
+      "principles": "Scattering by molecules and aerosols partially polarizes light in a way that depends on scattering angle and particle properties, while many surfaces depolarize. The degree and angle of linear polarization can therefore help separate atmospheric from surface contributions.",
+      "contribution": "Candidate complementary observable for reducing surface-atmosphere ambiguity when intensity alone is insufficient.",
+      "experimentalStatus": "simulated",
+      "statusDetail": "Represented as a candidate modality in synthetic selection experiments.",
+      "limitations": ["Requires accurate polarimetric calibration.", "Information content depends strongly on viewing geometry.", "Modeled with simplified assumptions in current simulations."],
+      "integrated": false,
+      "demo": "polarization"
+    },
+    {
+      "id": "acoustic", "name": "Acoustic sensing", "icon": "AudioLines", "color": "#34e3a4",
+      "observables": ["Resonant frequencies", "Temporal response", "Material discrimination", "Exploratory vibration fingerprinting"],
+      "principles": "When a material or structure is excited, it rings at resonant frequencies determined by its geometry, stiffness, density, and damping. The spectrum and decay of the response form a fingerprint that may differ between materials or conditions.",
+      "contribution": "Exploratory complementary physical response, independent of optical paths, for distinguishing materials and measurement conditions.",
+      "experimentalStatus": "exploratory",
+      "statusDetail": "Exploratory proof-of-concept recordings; see the Acoustic Laboratory.",
+      "limitations": ["Highly sensitive to mounting, excitation method, and background noise.", "Small sample sizes; no controlled validation yet.", "Consumer microphones have non-flat frequency response."],
+      "integrated": false,
+      "demo": "resonance"
+    },
+    {
+      "id": "microwave", "name": "Microwave sensing", "icon": "Radar", "color": "#4f7dff",
+      "observables": ["Complementary electromagnetic observations", "Environmental sensitivity"],
+      "principles": "At microwave wavelengths, emission and backscatter depend on dielectric properties (strongly affected by liquid water), surface roughness, and structure, and clouds are largely transparent at lower frequencies.",
+      "contribution": "Candidate complementary observation, especially for moisture- and precipitation-related conditions.",
+      "experimentalStatus": "conceptual",
+      "statusDetail": "Represented only as an abstract candidate modality in synthetic experiments; no microwave hardware or physical microwave modeling.",
+      "limitations": ["Coarse spatial resolution relative to optical sensors.", "Not physically modeled in current work."],
+      "integrated": false,
+      "demo": "dielectric"
+    },
+    {
+      "id": "mechanical", "name": "Mechanical sensing", "icon": "Vibrate", "color": "#f5c451",
+      "observables": ["Structural response", "Vibration", "Material characterization"],
+      "principles": "Accelerometers and strain sensors measure how a structure responds to loads and vibration; changes in stiffness, mass, or damping shift its modal response.",
+      "contribution": "Candidate modality for monitoring instrument state (for example, sources of drift) and for material characterization.",
+      "experimentalStatus": "conceptual",
+      "statusDetail": "Represented as an abstract candidate modality in synthetic experiments.",
+      "limitations": ["Not yet physically tested within AURORA.", "Coupling between mechanical state and optical drift is hypothetical."],
+      "integrated": false,
+      "demo": "oscillator"
+    }
+  ]
+}

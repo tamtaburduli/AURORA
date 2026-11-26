@@ -1,0 +1,38 @@
+{
+  "name": "aurora-research-site",
+  "version": "0.1.0",
+  "description": "AURORA — Adaptive Uncertainty-aware Radiative Observation and Ranging Architecture: research website",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "validate:data": "node scripts/validate-data.mjs"
+  },
+  "author": "Tamta Burduli",
+  "license": "MIT",
+  "dependencies": {
+    "framer-motion": "^14.14.0",
+    "katex": "^0.19.1",
+    "lucide-react": "^1.80.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.6",
+    "recharts": "^3.11.1"
+  },
+  "devDependencies": {
+    "@types/katex": "^0.16.8",
+    "@types/react": "^18.3.32",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.7.0",
+    "postcss": "^8.5.33",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "vitest": "^2.1.9"
+  },
+  "private": true,
+  "type": "module"
+}

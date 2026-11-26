@@ -1,0 +1,25 @@
+{
+  "$schema_note": "implementation must be one of: conceptual, computational (implemented in computational experiments), illustrative (implemented only in this website's educational simulator). 'implementationConfirmed: false' shows a verification marker.",
+  "nodes": [
+    { "id": 1, "short": "Environment", "title": "Physical environment", "implementation": "computational", "implementationConfirmed": false,
+      "purpose": "The true physical state — surface properties, atmospheric constituents, environmental conditions — that the system is trying to retrieve. In current work it is represented by simulated states." },
+    { "id": 2, "short": "Initial obs.", "title": "Initial observation", "implementation": "computational", "implementationConfirmed": false,
+      "purpose": "A first, low-cost measurement (or a reference observation) that provides an initial constraint on the state." },
+    { "id": 3, "short": "Features", "title": "Feature extraction", "implementation": "computational", "implementationConfirmed": false,
+      "purpose": "Transforming raw observations into quantities sensitive to physical parameters, such as band ratios, spectral slopes, polarization degree, or resonant peaks." },
+    { "id": 4, "short": "State est.", "title": "Physical state estimation", "implementation": "computational", "implementationConfirmed": false,
+      "purpose": "Inverting the forward model to estimate the physical state, for example a posterior distribution over aerosol optical depth and surface albedo." },
+    { "id": 5, "short": "Uncertainty", "title": "Uncertainty assessment", "implementation": "computational", "implementationConfirmed": false,
+      "purpose": "Quantifying how well the current observations constrain the state: posterior spread, ambiguity between competing solutions, or detection of conditions outside the known set." },
+    { "id": 6, "short": "Deficit", "title": "Information deficit identification", "implementation": "conceptual", "implementationConfirmed": false,
+      "purpose": "Identifying which parameters or which hypotheses remain unresolved — for example, that aerosol loading and surface brightness are still confounded." },
+    { "id": 7, "short": "Selection", "title": "Adaptive measurement selection", "implementation": "computational", "implementationConfirmed": false,
+      "purpose": "Choosing the next observation — a band, a modality, or a geometry — that is expected to reduce the identified deficit most per unit of cost, within the remaining budget." },
+    { "id": 8, "short": "Acquisition", "title": "Complementary observation acquisition", "implementation": "computational", "implementationConfirmed": false,
+      "purpose": "Acquiring the selected observation. In current work this is a simulated measurement; no physical acquisition hardware exists." },
+    { "id": 9, "short": "Update", "title": "Updated state estimation", "implementation": "computational", "implementationConfirmed": false,
+      "purpose": "Combining the new observation with prior information to update the state estimate and its uncertainty." },
+    { "id": 10, "short": "Decision", "title": "Final retrieval or continued adaptive observation", "implementation": "conceptual", "implementationConfirmed": false,
+      "purpose": "A stopping rule: report the retrieval when uncertainty falls below a threshold or the budget is exhausted; otherwise return to uncertainty assessment and continue." }
+  ]
+}
